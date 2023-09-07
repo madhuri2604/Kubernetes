@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: default
+  labels:
+    component: web-b
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: web-b
+  template:
+    metadata:
+      labels:
+        component: web-b
+    spec:
+      containers:
+      - name: backend
+        image: lakshya7ghatotkach/lakshya:bk
+        ports:
+        - containerPort: 5000
